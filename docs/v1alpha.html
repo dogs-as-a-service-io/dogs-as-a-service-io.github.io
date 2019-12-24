@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>v1alpha - Dogs-as-a-service.io: v1alpha</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../index.html">Dogs-as-a-service.io: v1alpha</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../index.html">Home</a>
+                            </li>
+                            <li >
+                                <a href="../about.html">About</a>
+                            </li>
+                            <li >
+                                <a href="../docs.html">Docs</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#v1alpha">v1alpha</a></li>
+            <li><a href="#description">Description:</a></li>
+            <li><a href="#location">Location: /</a></li>
+            <li><a href="#location-image">Location: /image</a></li>
+            <li><a href="#location-images">Location: /images</a></li>
+            <li><a href="#location-imagesimage-uuid">Location: /images/{image uuid}</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="v1alpha">v1alpha</h1>
+<h2 id="description">Description:</h2>
+<ul>
+<li><strong>Endpoint</strong>: <code>api.dogs-as-a-service.io/v1alpha</code>.</li>
+<li><strong>Schema</strong>: <code>HTTPS</code>.</li>
+</ul>
+<h2 id="location">Location: <strong>/</strong></h2>
+<blockquote>
+<h3 id="get"><span style="color:#00BFFF"><strong>[GET]</strong></span></h3>
+<p>Get <em>welcome</em> message.</p>
+</blockquote>
+<h4 id="example-request">Example request:</h4>
+<pre><code class="bash">curl -iX GET \
+    -H 'Content-Type: application/json' \
+    https://api.dogs-as-a-service.io/v1alpha
+</code></pre>
+
+<h4 id="example-response">Example response:</h4>
+<pre><code class="json">{
+  &quot;message&quot;: &quot;Welcome to the dogs-as-a-service public API&quot;,
+  &quot;success&quot;: true,
+  &quot;version&quot;: &quot;v1alpha&quot;
+}
+</code></pre>
+
+<h2 id="location-image">Location: <strong>/image</strong></h2>
+<blockquote>
+<h3 id="get_1"><span style="color:#00BFFF"><strong>[GET]</strong></span></h3>
+<p>Get a single image object of a random dog.</p>
+</blockquote>
+<h4 id="example-request_1">Example request:</h4>
+<pre><code class="bash">curl -iX GET \
+    -H 'Content-Type: application/json' \
+    https://api.dogs-as-a-service.io/v1alpha/image
+</code></pre>
+
+<h4 id="example-response_1">Example response:</h4>
+<pre><code class="json">{
+  &quot;message&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;image&quot;: {
+      &quot;created_at&quot;: &quot;2019-12-24T10:56:44&quot;,
+      &quot;locked&quot;: false,
+      &quot;selfLink&quot;: &quot;https://api.dogs-as-a-service.io/v1alpha/images/1255ee1a-263c-11ea-b5b2-0242ac140002&quot;,
+      &quot;url&quot;: &quot;https://cdn.dogs-as-a-service.io/1255ee1a-263c-11ea-b5b2-0242ac140002.jpeg&quot;,
+      &quot;uuid&quot;: &quot;1255ee1a-263c-11ea-b5b2-0242ac140002&quot;
+    }
+  },
+  &quot;success&quot;: true
+}
+</code></pre>
+
+<h2 id="location-images">Location: <strong>/images</strong></h2>
+<blockquote>
+<h3 id="get_2"><span style="color:#00BFFF"><strong>[GET]</strong></span></h3>
+<p>Get list of images uploaded by the requestor.</p>
+<blockquote>
+<p><span style="color:#FFA500">Authentication required</span></p>
+</blockquote>
+</blockquote>
+<h4 id="example-request_2">Example request:</h4>
+<pre><code class="bash">curl -iX GET \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer {API_TOKEN}' \
+    https://api.dogs-as-a-service.io/v1alpha/images
+</code></pre>
+
+<h4 id="example-response_2">Example response:</h4>
+<pre><code class="json">{
+  &quot;message&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;images&quot;: [
+      {
+        &quot;created_at&quot;: &quot;2019-12-24T10:56:44&quot;,
+        &quot;locked&quot;: false,
+        &quot;selfLink&quot;: &quot;https://api.dogs-as-a-service.io/v1alpha/images/1255ee1a-263c-11ea-b5b2-0242ac140002&quot;,
+        &quot;url&quot;: &quot;https://cdn.dogs-as-a-service.io/1255ee1a-263c-11ea-b5b2-0242ac140002.jpeg&quot;,
+        &quot;uuid&quot;: &quot;1255ee1a-263c-11ea-b5b2-0242ac140002&quot;
+      }
+    ]
+  },
+  &quot;success&quot;: true
+}
+</code></pre>
+
+<blockquote>
+<h3 id="post"><span style="color:#008000"><strong>[POST]</strong></span></h3>
+<p>Upload new image to the <strong>dogs-as-a-service</strong> platform.</p>
+<blockquote>
+<p><span style="color:#FFA500">Authentication required</span></p>
+</blockquote>
+</blockquote>
+<h4 id="limitations">Limitations:</h4>
+<ul>
+<li>Maximum image size is <code>2Mb</code> (2 * 1024 * 1024).</li>
+<li>Supported image formats are: <code>jpg</code>,<code>jpe</code>, <code>jpeg</code>, <code>png</code>, <code>gif</code>, <code>bmp</code>.</li>
+<li>Image <code>sha256</code> will be checked. If an image with the same sha already exists in the database you'll get <code>409 Conflict</code> error code.</li>
+<li>The image will be placed in the queue for processing and analysis. It is required to ensure the image is: 1. safe, 2. contains a dog. Only after that, the image will become publicly available.</li>
+</ul>
+<h4 id="example-request_3">Example request:</h4>
+<pre><code class="bash">curl -iX POST \
+    -F 'file=cool-doggo.jpg' \
+    -H 'Authorization: Bearer {API_TOKEN}' \
+    https://api.dogs-as-a-service.io/v1alpha/images
+</code></pre>
+
+<h4 id="example-response_3">Example response:</h4>
+<pre><code class="json">{
+  &quot;message&quot;: &quot;Accepted&quot;,
+  &quot;result&quot;: {
+    &quot;selfLink&quot;: &quot;https://api.dogs-as-a-service.io/v1alpha/images/1255ee1a-263c-11ea-b5b2-0242ac140002&quot;
+  },
+  &quot;success&quot;: true
+}
+</code></pre>
+
+<h2 id="location-imagesimage-uuid">Location: <strong>/images/{image uuid}</strong></h2>
+<blockquote>
+<h3 id="get_3"><span style="color:#00BFFF"><strong>[GET]</strong></span></h3>
+<p>Get detailed information about specified image.</p>
+</blockquote>
+<h4 id="example-request_4">Example request:</h4>
+<pre><code class="bash">curl -iX GET \
+    -H 'Content-Type: application/json' \
+    https://api.dogs-as-a-service.io/v1alpha/images/fc0b6b82-746a-428e-9202-5f157487a846
+</code></pre>
+
+<h4 id="example-response_4">Example response:</h4>
+<pre><code class="json">{
+  &quot;message&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;image&quot;: {
+      &quot;created_at&quot;: &quot;2019-12-24T10:56:44&quot;,
+      &quot;locked&quot;: false,
+      &quot;selfLink&quot;: &quot;https://api.dogs-as-a-service.io/v1alpha/images/1255ee1a-263c-11ea-b5b2-0242ac140002&quot;,
+      &quot;url&quot;: &quot;https://cdn.dogs-as-a-service.io/1255ee1a-263c-11ea-b5b2-0242ac140002.jpeg&quot;,
+      &quot;uuid&quot;: &quot;1255ee1a-263c-11ea-b5b2-0242ac140002&quot;
+    }
+  },
+  &quot;success&quot;: true
+}
+</code></pre>
+
+<blockquote>
+<h3 id="delete"><span style="color:#FF0000"><strong>[DELETE]</strong></span></h3>
+<p>Delete specified image.</p>
+<blockquote>
+<p><span style="color:#FFA500">Authentication required</span></p>
+</blockquote>
+</blockquote>
+<h4 id="limitations_1">Limitations:</h4>
+<ul>
+<li>Only the person who uploaded the image can delete it.</li>
+<li>The image will become inaccessible as an object within the API.</li>
+<li>The image will become 'private' within the backend storage and the CDN scope.</li>
+<li>The image will be available from the CDN cache for some time.</li>
+<li>The image will be fully (storage backend, database) deleted after some time by the garbage collector.</li>
+</ul>
+<h4 id="example-request_5">Example request:</h4>
+<pre><code class="bash">curl -iX DELETE \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer {API_TOKEN}' \
+    https://api.dogs-as-a-service.io/v1alpha/images/fc0b6b82-746a-428e-9202-5f157487a846
+</code></pre>
+
+<h4 id="example-response_5">Example response:</h4>
+<pre><code class="json">{
+  &quot;message&quot;: &quot;Deleted&quot;,
+  &quot;result&quot;: {},
+  &quot;success&quot;: true
+}
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

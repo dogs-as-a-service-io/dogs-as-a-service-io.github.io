@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Docs - Dogs-as-a-service.io: v1alpha</title>
+        <link href="css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Dogs-as-a-service.io: v1alpha</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li >
+                                <a href="about.html">About</a>
+                            </li>
+                            <li class="active">
+                                <a href="docs.html">Docs</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="about.html">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="disabled">
+                                <a rel="prev" >
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#api-reference">API Reference</a></li>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#authentication">Authentication</a></li>
+            <li><a href="#response-format">Response Format</a></li>
+            <li><a href="#date-format">Date format</a></li>
+            <li><a href="#http-response-codes">HTTP response codes</a></li>
+            <li><a href="#api-endpoints">API Endpoints</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="api-reference">API Reference</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The dogs-as-a-service API is built on HTTP. The API is RESTful, it returns JSON and responds with standart HTTP codes.</p>
+<h2 id="authentication">Authentication</h2>
+<p>For some resources within this API, you must provide an authentication token in the request headers.</p>
+<p>Example:</p>
+<pre><code class="bash">curl -iX GET -H 'Authorization: Bearer {API_TOKEN}' https://...
+</code></pre>
+
+<h2 id="response-format">Response Format</h2>
+<p>API will always responde with JSON-encoded objects - <code>Content-Type: application/json</code>.
+The response body may vary according to the request method and resource used, but for each successful request the API will return these common parts:</p>
+<pre><code class="json">{
+    &quot;sucess&quot;: true,
+    &quot;result&quot;: {}
+}
+</code></pre>
+
+<p>Where <code>result</code> tag will contain your requested data.</p>
+<h2 id="date-format">Date format</h2>
+<p>Since JSON doesn't have a built-in data type for dates the dates will be returned as <code>string</code> in UTC <code>ISO-8601</code> format.</p>
+<h2 id="http-response-codes">HTTP response codes</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Code</th>
+<th align="left">Status</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><span style="color:#008000"><strong>200</strong></span></td>
+<td align="left">OK</td>
+<td align="left">Request was successful</td>
+</tr>
+<tr>
+<td align="left"><span style="color:#008000"><strong>201</strong></span></td>
+<td align="left">Created</td>
+<td align="left">The object was created successfully within the API</td>
+</tr>
+<tr>
+<td align="left"><span style="color:#008000"><strong>202</strong></span></td>
+<td align="left">Accepted</td>
+<td align="left">The object was created successfully but require some processing before it becomes available</td>
+</tr>
+<tr>
+<td align="left"><span style="color:#FF0000"><strong>400</strong></span></td>
+<td align="left">Bad Request</td>
+<td align="left">The server cannot or will not process the request</td>
+</tr>
+<tr>
+<td align="left"><span style="color:#FF0000"><strong>401</strong></span></td>
+<td align="left">Unauthorized</td>
+<td align="left">The request has not been applied because it lacks valid authentication credentials for the target resource; Wrong authorization token</td>
+</tr>
+<tr>
+<td align="left"><span style="color:#FF0000"><strong>403</strong></span></td>
+<td align="left">Forbidden</td>
+<td align="left">The server understood the request but refuses to authorize it; Insufficient permissions</td>
+</tr>
+<tr>
+<td align="left"><span style="color:#FF0000"><strong>404</strong></span></td>
+<td align="left">Not Found</td>
+<td align="left">The origin server did not find a current representation for the target resource or is not willing to disclose that one exists</td>
+</tr>
+<tr>
+<td align="left"><span style="color:#FF0000"><strong>409</strong></span></td>
+<td align="left">Conflict</td>
+<td align="left">The request could not be completed due to a conflict with the current state of the target resource; Object already exists</td>
+</tr>
+<tr>
+<td align="left"><span style="color:#FF0000"><strong>422</strong></span></td>
+<td align="left">Unprocessable Entity</td>
+<td align="left">The request provided invalid parameters</td>
+</tr>
+<tr>
+<td align="left"><span style="color:#FF0000"><strong>423</strong></span></td>
+<td align="left">Locked</td>
+<td align="left">The object is locked</td>
+</tr>
+<tr>
+<td align="left"><span style="color:#FF0000"><strong>50x</strong></span></td>
+<td align="left"></td>
+<td align="left">Something is wrong with the API</td>
+</tr>
+</tbody>
+</table>
+<p>Example of an error response:</p>
+<pre><code class="json">{
+  &quot;message&quot;: &quot;The request has not been applied because it lacks valid authentication credentials for the target resource&quot;,
+  &quot;status&quot;: &quot;UNAUTHORIZED&quot;,
+  &quot;success&quot;: false
+}
+</code></pre>
+
+<h2 id="api-endpoints">API Endpoints</h2>
+<p>Currently, there is one endpoint available: <a href="docs/v1alpha.html">v1alpha</a>.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
