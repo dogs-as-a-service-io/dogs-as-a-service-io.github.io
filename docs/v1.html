@@ -200,7 +200,7 @@
 <p>Before image becomes available on the platform it must comply with the <a href="imagelimitations.html">following limitataions</a></p>
 <h4 id="example-request_3">Example request:</h4>
 <pre><code class="bash">curl -iX POST \
-    -F 'file=cool-doggo.jpg' \
+    -F 'file=@cool-doggo.jpg' \
     -H 'Authorization: Bearer {API_TOKEN}' \
     https://api.dogs-as-a-service.io/v1/images
 </code></pre>
