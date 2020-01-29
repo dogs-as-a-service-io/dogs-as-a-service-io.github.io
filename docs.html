@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="img/favicon.ico">
-        <title>Docs - Dogs-as-a-service.io: v1alpha</title>
+        <title>Docs - Dogs-as-a-service.io: v1</title>
         <link href="css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="css/base.css" rel="stylesheet">
@@ -39,7 +39,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">Dogs-as-a-service.io: v1alpha</a>
+                    <a class="navbar-brand" href="index.html">Dogs-as-a-service.io: v1</a>
                 </div>
 
                 <!-- Expanded navigation -->
@@ -50,10 +50,13 @@
                                 <a href="index.html">Home</a>
                             </li>
                             <li >
-                                <a href="about.html">About</a>
+                                <a href="registration.html">Registration</a>
                             </li>
                             <li class="active">
                                 <a href="docs.html">Docs</a>
+                            </li>
+                            <li >
+                                <a href="about.html">About</a>
                             </li>
                         </ul>
 
@@ -64,12 +67,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="about.html">
+                                <a rel="next" href="registration.html">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
-                            <li class="disabled">
-                                <a rel="prev" >
+                            <li >
+                                <a rel="prev" href="about.html">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -103,7 +106,7 @@
 </code></pre>
 
 <h2 id="user-registration">User registration</h2>
-<p>Currently, the API is in closed alpha. Once we ensure all functionality are working as intended the registration will be open thru separate API resource. After that, anyone with valid token will be able to upload their images to the platform.</p>
+<p>The platform is open for new users. Please follow <a href="registration.html">this guide</a> on how to acquire an authentication token to use with the API.</p>
 <h2 id="response-format">Response Format</h2>
 <p>API will always responde with JSON-encoded objects - <code>Content-Type: application/json</code>.
 The response body may vary according to the request method and resource used, but for each successful request the API will return these common parts:</p>
@@ -186,13 +189,14 @@ The response body may vary according to the request method and resource used, bu
 <p>Example of an error response:</p>
 <pre><code class="json">{
   &quot;message&quot;: &quot;The request has not been applied because it lacks valid authentication credentials for the target resource&quot;,
-  &quot;status&quot;: &quot;UNAUTHORIZED&quot;,
+  &quot;reason&quot;: &quot;Authorization refused because the provided token is invalid, wrong, locked or does not exist anymore&quot;,
+  &quot;status&quot;: &quot;Unauthorized&quot;,
   &quot;success&quot;: false
 }
 </code></pre>
 
 <h2 id="api-endpoints">API Endpoints</h2>
-<p>Currently, there is one endpoint available: <a href="docs/v1alpha.html">v1alpha</a>.</p></div>
+<p>Currently, there is one endpoint available: <a href="docs/v1.html">v1</a>.</p></div>
         </div>
 
         <footer class="col-md-12">

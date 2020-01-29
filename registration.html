@@ -7,11 +7,11 @@
         
         
         
-        <link rel="shortcut icon" href="/img/favicon.ico">
-        <title>Dogs-as-a-service.io: v1</title>
-        <link href="/css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="/css/font-awesome.min.css" rel="stylesheet">
-        <link href="/css/base.css" rel="stylesheet">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Registration - Dogs-as-a-service.io: v1</title>
+        <link href="css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script src="/js/jquery-1.10.2.min.js" defer></script>
-        <script src="/js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap-3.0.3.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
@@ -39,7 +39,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/index.html">Dogs-as-a-service.io: v1</a>
+                    <a class="navbar-brand" href="index.html">Dogs-as-a-service.io: v1</a>
                 </div>
 
                 <!-- Expanded navigation -->
@@ -47,16 +47,16 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li >
-                                <a href="/index.html">Home</a>
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li class="active">
+                                <a href="registration.html">Registration</a>
                             </li>
                             <li >
-                                <a href="/registration.html">Registration</a>
+                                <a href="docs.html">Docs</a>
                             </li>
                             <li >
-                                <a href="/docs.html">Docs</a>
-                            </li>
-                            <li >
-                                <a href="/about.html">About</a>
+                                <a href="about.html">About</a>
                             </li>
                         </ul>
 
@@ -66,21 +66,62 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li >
+                                <a rel="next" href="index.html">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="docs.html">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#registration">Registration</a></li>
+            <li><a href="#step-i-create-new-account">Step I. Create new account</a></li>
+            <li><a href="#step-ii-confirm-your-email-address">Step II. Confirm your email address</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
 
-    <div class="row-fluid">
-      <div id="main-content" class="span12">
-        <h1 id="404-page-not-found" style="text-align: center">404</h1>
-        <p style="text-align: center"><strong>Page not found</strong></p>
-      </div>
-    </div>
+<h1 id="registration">Registration</h1>
+<p>To register your account you must complete a few steps.</p>
+<h3 id="step-i-create-new-account">Step I. Create new account</h3>
+<p>Make a <code>POST</code> request to the <code>https://api.dogs-as-a-service.io/v1/register</code>.</p>
+<p><code>email</code> -- your email. Please specify existing email because you'll need to verify in before you will be able to use the API.</p>
+<h4 id="example-request">Example request:</h4>
+<pre><code class="bash">curl -iX POST \
+    -H 'Content-Type: application/json' \
+    -d '{&quot;email&quot;: &quot;me@example.com&quot;}' \
+    http://api.dogs-as-a-service.io/v1/register
+</code></pre>
 
+<h4 id="example-response">Example response</h4>
+<pre><code class="json">{
+  &quot;result&quot;: {},
+  &quot;status&quot;: &quot;Accepted&quot;,
+  &quot;success&quot;: true
+}
+</code></pre>
 
+<h3 id="step-ii-confirm-your-email-address">Step II. Confirm your email address</h3>
+<p>Please check your email inbox (especially a spam folder).
+In a few minutes from POSTing to the API resource, you will receive a confirmation email containing an activation link.
+Follow that link to activate your account.
+When you visit the email validation URL for the first time the platform will generate an authorization token for you.
+Save it as it is only obtainable once and exists only during the initial request.</p>
+<h4 id="example-email">Example email</h4>
+<pre><code class="text">To finish creating your account, confirm your email address by clicking this link:
+https://api.dogs-as-a-service.io/v1/register/XZrCW3NTC3GDP6G3cvTbaD4ph2RqDj6D8PXt58XF
+Kg5OvSAYiVHPgNpYbz4l
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">
@@ -88,11 +129,11 @@
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = "/",
+            var base_url = ".",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="/js/base.js" defer></script>
-        <script src="/search/main.js" defer></script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">
